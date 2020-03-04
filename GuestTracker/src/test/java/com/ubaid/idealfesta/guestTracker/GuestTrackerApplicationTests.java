@@ -1,4 +1,4 @@
-package com.ubaid.idealfesta.GuestTracker;
+package com.ubaid.idealfesta.guestTracker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
