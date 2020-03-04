@@ -1,0 +1,34 @@
+<app-header></app-header>
+<form #todoForm="ngForm" (ngSubmit)="save()">
+    <div class="container">
+
+        <div class="form-group">
+            <label for="name" name="name_label">Enter Your name</label>
+            <input [(ngModel)]=user.username type="text" class="form-control" id="name" placeholder="Enter Your name"
+                   name="name_input" required="required" minlength="5">
+        </div>
+
+        <div class="form-group">
+            <label for="targetDate" name="date_label">Date</label>
+            <input [ngModel]="user.date | date:'yyyy-MM-dd'" (ngModelChange)="user.date = $event" type="date"
+                   class="form-control" id="targetDate" placeholder="Enter Your arrival Date" (click)="log()" name="date_input"
+                   required="required">
+        </div>
+
+        <div class="form-group">
+            <label for="days" name="days_label">How much you want to live?</label>
+            <input [(ngModel)]=user.days type="text" class="form-control" id="days" placeholder="Enter days"
+                   name="days_input" required="required" minlength="5">
+        </div>
+
+        <div class="form-group">
+            <label for="floor" name="floor_label">Which floor you want?</label>
+            <input [(ngModel)]=user.floor type="text" class="form-control" id="floor" placeholder="1, 2, 3, 4? Write one"
+                   name="floor_input" required="required" minlength="5">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">{{buttonName}}</button>
+    </div>
+</form>
+<app-footer></app-footer>

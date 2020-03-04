@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("admin")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Controller {
 
     private GuestService service;
@@ -36,4 +37,7 @@ public class Controller {
     public Guest update(@RequestBody  Guest guest) {
         return  service.update(guest);
     }
+
+    @PostMapping("/approve")
+    public Guest approve(@RequestBody Guest guest) {return service.update(guest);}
 }

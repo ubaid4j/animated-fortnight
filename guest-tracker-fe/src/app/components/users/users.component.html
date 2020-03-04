@@ -1,0 +1,41 @@
+<app-header></app-header>
+<h1>Requested Accommodations</h1>
+<div *ngIf="info" class="alert alert-success" role="alert">
+    {{info}}
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Requested Days</th>
+            <th>Requested Floors</th>
+            <th>Requested Date</th>
+            <th>Change</th>
+            <th>Approved</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.days}}</td>
+            <td>{{user.floor}}</td>
+            <td>{{user.date | date:'dd-MMM-yyyy'}}</td>
+            <td>
+                <button (click)="udpate(user.id)" class="btn btn-success">Change</button>
+            </td>
+            <td>
+                <button *ngIf="!user.approved" (click)="approveUser(user)" class="btn btn-success">Approve</button>
+                <p *ngIf="user.approved">Approved</p>
+            </td>
+            <td>
+                <button (click)="deleteTodo(user.id)" class="btn btn-warning">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<app-footer></app-footer>

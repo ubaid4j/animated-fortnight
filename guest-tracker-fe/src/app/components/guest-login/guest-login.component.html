@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="container">
+    <h1>Welcome our respected guest</h1>
+    <div>
+        <p>User Name: <input type="text" id="name" [(ngModel)]="username"></p>
+    </div>
+
+    <div>
+        <p>Password: &nbsp;&nbsp;&nbsp;<input type="password" id="password" [(ngModel)]="password"></p>
+        <div *ngIf="isInValid" class="alert alert-warning">InvalidCredentials</div>
+    </div>
+
+    <div>UserName: <span>{{username}}</span></div>
+    <div><input type="submit" value="Login" (click)="login()" class="btn btn-success"/></div>
+</div>
+<app-footer></app-footer>
+

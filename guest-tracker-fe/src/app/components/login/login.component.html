@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="container">
+    <h1>You are going to login as ADMIN</h1>
+    <div>
+        <p>User Name: <label for="name"></label><input type="text" id="name" [(ngModel)]="username"></p>
+    </div>
+
+    <div>
+        <p>Password: &nbsp;&nbsp;&nbsp;<label for="password"></label><input type="password" id="password" [(ngModel)]="password"></p>
+        <div *ngIf="isInValid" class="alert alert-warning">InvalidCredentials</div>
+    </div>
+
+    <div><input type="submit" value="Login" (click)="whenClick()" class="btn btn-success"/></div>
+</div>
+<app-footer></app-footer>
+

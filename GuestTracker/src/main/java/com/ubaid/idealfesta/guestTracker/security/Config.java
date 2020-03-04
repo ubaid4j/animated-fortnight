@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.header.writers.StaticHeadersWriter;
 
 import javax.sql.DataSource;
 
@@ -34,11 +35,18 @@ public class Config extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors().and()
                 .csrf().disable()
                 .authorizeRequests()
+                .antMatchers("/auth/**")
+                .permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and().httpBasic();
+
+//        http.headers().addHeaderWriter(
+//                new StaticHeadersWriter("Access-Control-Allow-Origin", "http://localhost:4200/")
+//        );
     }
 }
