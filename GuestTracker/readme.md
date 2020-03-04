@@ -11,9 +11,17 @@
 - cd GuestTracker
 - mvn spring-boot:run
 
+#### Security
+- For admin
+    - username is admin
+    - Password is admin
+ - For guest
+    - username is guest
+    - Password is guest
+
 #### Todo
 - [x] Rest APIs
 - [x] Persistence (database storage)
 - [x] USER Roles in Database
-- [ ] Implementing Security
+- [x] Implementing Security
 - [ ] Adding UI
