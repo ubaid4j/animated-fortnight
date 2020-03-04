@@ -1,0 +1,49 @@
+version: '3'
+services:
+    guest-tracker-be:
+        build: ./GuestTracker
+        restart: always
+        expose:
+        - 8000
+        ports:
+        - 8000:8000
+        volumes:
+        - gtvol:/tmp        
+        networks: 
+        - gt-net
+        depends_on:
+          - gtdb
+    guest-tracker-fe:
+        build: ./guest-tracker-fe
+        volumes:
+        - gtvol:/app
+        - gtvol:/app/node_modules
+        networks:
+        - gt-net
+        expose:
+        - 4200
+        ports:
+        - 4200:80
+        depends_on:
+        - guest-tracker-be
+    gtdb:
+        image: mysql:8.0.18
+        restart: always
+        environment:
+          MYSQL_DATABASE: 'db'
+          MYSQL_USER: 'root'
+          MYSQL_PASSWORD: 'password'
+          MYSQL_ROOT_PASSWORD: 'password'
+        ports:
+        - '3306:3306'
+        expose:
+        - '3306'
+        volumes:
+        - dbvol:/var/lib/mysql
+        networks:
+        - gt-net
+volumes:
+    gtvol:
+    dbvol:
+networks:
+    gt-net: {}
