@@ -17,6 +17,7 @@ import {AuthService} from './services/auth/auth.service';
 import {HttpIntercepterService} from './services/http/http-intercepter.service';
 import { ResponseComponent } from './components/response/response.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import { LogoutComponent } from './components/logout/logout.component';
         AppRoutingModule
     ],
     providers: [
-        {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true}
+        {provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true},
+        {provide: LocationStrategy, useClass: HashLocationStrategy}
     ],
     bootstrap: [AppComponent]
 })
