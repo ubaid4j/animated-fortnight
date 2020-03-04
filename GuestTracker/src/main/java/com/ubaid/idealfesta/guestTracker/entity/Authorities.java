@@ -1,7 +1,5 @@
 package com.ubaid.idealfesta.guestTracker.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,6 +7,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "authorities", uniqueConstraints = @UniqueConstraint(columnNames = {"username", "authority"}))
 public class Authorities implements Serializable {
+
+    private static final long serialVersionUID = -2655114758203338296L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
