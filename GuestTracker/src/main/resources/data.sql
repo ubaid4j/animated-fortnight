@@ -9,9 +9,9 @@ insert into guest(id, approved, date, days, floor, username)
 values(1, 0, '2020-03-04', 3, 4, 'ubaid');
 
 insert into users(username, enabled, password)
-values  ('admin', 1, 'admin'),
-        ('guest', 1, 'guest');
+values  ('admin', 1, '{noop}admin'),
+        ('guest', 1, '{noop}guest');
 
 insert into authorities(username, authority)
-values ('admin', 'ADMIN'),
-       ('guest', 'USER');
+values ('admin', 'ROLE_ADMIN'),
+       ('guest', 'ROLE_USER');

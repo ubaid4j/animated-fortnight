@@ -1,10 +1,13 @@
 package com.ubaid.idealfesta.guestTracker.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
-//@Entity
-//@Table(name = "authorities", uniqueConstraints = @UniqueConstraint(columnNames = {"username", "authority"}))
+@SuppressWarnings("JpaDataSourceORMInspection")
+@Entity
+@Table(name = "authorities", uniqueConstraints = @UniqueConstraint(columnNames = {"username", "authority"}))
 public class Authorities implements Serializable {
 
     @Id

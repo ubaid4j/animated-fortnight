@@ -8,18 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("guest")
+@RequestMapping("admin")
 public class Controller {
 
     private GuestService service;
 
     public Controller(@Autowired GuestService service) {
         this.service = service;
-    }
-
-    @PostMapping("/")
-    public Guest save(@RequestBody Guest guest) {
-        return service.save(guest);
     }
 
     @GetMapping("/{id}")

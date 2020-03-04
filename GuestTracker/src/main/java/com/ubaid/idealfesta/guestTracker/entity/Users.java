@@ -1,10 +1,13 @@
 package com.ubaid.idealfesta.guestTracker.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
-//@Entity
-//@Table()
+@Entity
+@Table
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Users {
 
     @Id
@@ -17,7 +20,7 @@ public class Users {
     private Boolean enabled;
 
     //Mapping
-    @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "username", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Authorities> authorities;
 
     public List<Authorities> getAuthorities() {
