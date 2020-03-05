@@ -7,8 +7,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.header.writers.StaticHeadersWriter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
@@ -44,9 +42,5 @@ public class Config extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and().httpBasic();
         http.cors();
-
-    //    http.headers().addHeaderWriter(
-    //            new StaticHeadersWriter("Access-Control-Allow-Origin", "http://localhost:4200/")
-    //    );
     }
 }
