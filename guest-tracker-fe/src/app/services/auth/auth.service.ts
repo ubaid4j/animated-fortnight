@@ -37,7 +37,8 @@ export class AuthService {
         };
 
         console.log(`${API_URL}/auth/user`, options);
-        return this.http.post(`${API_URL}/auth/user`, options).pipe(
+        return this.http.get(`${API_URL}/auth/user`,
+            { headers: { authorization: this.createBasicAuthHeaderString(username, password)}}).pipe(
             map(data => {
                 console.log(data);
                 sessionStorage.setItem(AUTHUSER, username);
@@ -62,11 +63,11 @@ export class AuthService {
     public logout(): void {
         sessionStorage.removeItem(AUTHUSER);
         sessionStorage.removeItem(AUTHTOKEN);
-        this.http.post(`${API_URL}/logout`, null).subscribe(res => {
-            console.log(res);
-        }, err => {
-            console.log(err);
-        });
+        // this.http.post(`${API_URL}/logout`, null).subscribe(res => {
+        //     console.log(res);
+        // }, err => {
+        //     console.log(err);
+        // });
     }
 
     // *****************************Temp*********************************/
