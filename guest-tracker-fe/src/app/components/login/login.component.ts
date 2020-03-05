@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
     public whenClick(): void {
         console.log('Before: isAuth: ' + sessionStorage.getItem(AUTH));
+        this.auth.logout();
         this.auth.executeAuthenticationService(this.username, this.password).subscribe(value => {
             this.isInValid = false;
             this.router.navigate(['admin']).then(r => {});
