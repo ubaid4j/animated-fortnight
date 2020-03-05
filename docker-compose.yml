@@ -13,19 +13,19 @@ services:
         - gt-net
         depends_on:
           - gtdb
-    guest-tracker-fe:
-        build: ./guest-tracker-fe
-        volumes:
-        - gtvol:/app
-        - gtvol:/app/node_modules
-        networks:
-        - gt-net
-        expose:
-        - 4200
-        ports:
-        - 4200:80
-        depends_on:
-        - guest-tracker-be
+    # guest-tracker-fe:
+    #     build: ./guest-tracker-fe
+    #     volumes:
+    #     - gtvol:/app
+    #     - gtvol:/app/node_modules
+    #     networks:
+    #     - gt-net
+    #     expose:
+    #     - 4200
+    #     ports:
+    #     - 4200:80
+    #     depends_on:
+    #     - guest-tracker-be
     gtdb:
         image: mysql:8.0.18
         restart: always
