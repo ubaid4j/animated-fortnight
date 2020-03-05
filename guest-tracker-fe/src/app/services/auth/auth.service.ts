@@ -62,11 +62,11 @@ export class AuthService {
     public logout(): void {
         sessionStorage.removeItem(AUTHUSER);
         sessionStorage.removeItem(AUTHTOKEN);
-        // this.http.post(`${API_URL}/logout`, null).subscribe(res => {
-        //     console.log(res);
-        // }, err => {
-        //     console.log(err);
-        // });
+        this.http.post(`${API_URL}/logout`, null).subscribe(res => {
+            console.log(res);
+        }, err => {
+            console.log(err);
+        });
     }
 
     // *****************************Temp*********************************/
