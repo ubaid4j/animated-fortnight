@@ -11,7 +11,7 @@ import {LogoutComponent} from './components/logout/logout.component';
 
 // Here I have defined routes for different components and they are protected by Gaurd Service
 const routes: Routes = [
-    {path: '', component: WelcomeComponent},
+    {path: '', component: LoginComponent},
     {path: 'login/admin', component: LoginComponent},
     {path: 'login/user', component: GuestLoginComponent},
     {path: 'admin', component: AdminComponent, canActivate: [RouteGaurdService]},

@@ -26,7 +26,11 @@ export class LoginComponent implements OnInit {
         this.auth.logout();
         this.auth.executeAuthenticationService(this.username, this.password).subscribe(value => {
             this.isInValid = false;
-            this.router.navigate(['admin']).then(r => {});
+            if (this.username.includes('admin')) {
+                this.router.navigate(['admin']).then(r => {});
+            } else {
+                this.router.navigate(['user', '-1']).then(r => {});
+            }
             // storing authUser in the browser session
             sessionStorage.setItem(AUTH, this.username);
             console.log('After: isAuth: ' + sessionStorage.getItem(AUTH));
